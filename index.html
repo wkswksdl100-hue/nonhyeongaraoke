@@ -43,7 +43,7 @@
     <link rel="preload" as="image" href="https://nonhyeon-karaoke.pages.dev/images/main.webp" fetchpriority="high">
 
     <!-- ========================================== -->
-    <!-- 6. 🧠 JSON-LD 구조화 데이터                -->
+    <!-- 6. 🧠 JSON-LD 구조화 데이터 (itemReviewed 수정 완료) -->
     <!-- ========================================== -->
     <script type="application/ld+json">
     {
@@ -98,7 +98,10 @@
           "@type": "AggregateRating",
           "ratingValue": "4.9",
           "reviewCount": "127",
-          "bestRating": "5"
+          "bestRating": "5",
+          "itemReviewed": {
+            "@id": "https://nonhyeon-karaoke.pages.dev/#business"
+          }
         },
         {
           "@type": "BreadcrumbList",
@@ -112,223 +115,43 @@
     </script>
 
     <!-- ========================================== -->
-    <!-- 7. 🎨 CSS (강남가라오케 수준 고급 디자인)  -->
+    <!-- 7. 🎨 CSS (고급 디자인)                    -->
     <!-- ========================================== -->
     <style>
-        /* ===== 공통 초기화 ===== */
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { 
-            font-family: 'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif; 
-            background: #05050A; 
-            color: #f5f3ff; 
-            display: flex; 
-            justify-content: center; 
-            padding: 20px 20px 120px 20px; 
-            min-height: 100vh; 
-        }
-        .container { 
-            max-width: 820px; 
-            width:100%; 
-            background: linear-gradient(145deg, #0D0B18, #07070F); 
-            padding: 40px 35px; 
-            border-radius: 28px; 
-            border: 1px solid rgba(255,255,255,0.06); 
-            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9); 
-        }
-
-        /* ===== 배지 & 타이틀 ===== */
-        .badge { 
-            background: linear-gradient(135deg, #d4af37, #ff6b35); 
-            padding: 6px 18px; 
-            border-radius: 40px; 
-            font-size: 13px; 
-            font-weight: 900; 
-            display: inline-block; 
-            color: #fff; 
-            letter-spacing: 0.5px; 
-        }
-        h1 { 
-            font-size: 52px; 
-            font-weight: 950; 
-            margin: 18px 0 8px; 
-            background: linear-gradient(135deg, #d4af37, #ff6b35, #d4af37); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            line-height: 1.1; 
-        }
-        .sub { 
-            font-size: 20px; 
-            color: #b7afc7; 
-            margin-bottom: 25px; 
-            padding-left: 18px; 
-            border-left: 4px solid #d4af37; 
-        }
-
-        /* ===== 목차 ===== */
-        .toc { 
-            background: #14101F; 
-            border-radius: 16px; 
-            padding: 20px 25px; 
-            margin: 25px 0; 
-            border: 1px solid #2d2440; 
-        }
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; background: #05050A; color: #f5f3ff; display: flex; justify-content: center; padding: 20px 20px 120px 20px; min-height: 100vh; }
+        .container { max-width: 820px; width:100%; background: linear-gradient(145deg, #0D0B18, #07070F); padding: 40px 35px; border-radius: 28px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9); }
+        .badge { background: linear-gradient(135deg, #d4af37, #ff6b35); padding: 6px 18px; border-radius: 40px; font-size: 13px; font-weight: 900; display: inline-block; color: #fff; letter-spacing: 0.5px; }
+        h1 { font-size: 52px; font-weight: 950; margin: 18px 0 8px; background: linear-gradient(135deg, #d4af37, #ff6b35, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
+        .sub { font-size: 20px; color: #b7afc7; margin-bottom: 25px; padding-left: 18px; border-left: 4px solid #d4af37; }
+        .toc { background: #14101F; border-radius: 16px; padding: 20px 25px; margin: 25px 0; border: 1px solid #2d2440; }
         .toc p { font-weight: 900; color: #d4af37; margin-bottom: 10px; }
-        .toc a { 
-            color: #d4cbe5; 
-            text-decoration: none; 
-            margin-right: 15px; 
-            font-size: 14px; 
-            border-bottom: 1px dotted #3d3050; 
-            padding-bottom: 2px; 
-            display: inline-block; 
-            margin-bottom: 5px; 
-        }
+        .toc a { color: #d4cbe5; text-decoration: none; margin-right: 15px; font-size: 14px; border-bottom: 1px dotted #3d3050; padding-bottom: 2px; display: inline-block; margin-bottom: 5px; }
         .toc a:hover { color: #ff6b35; border-bottom-color: #ff6b35; }
-
-        /* ===== 본문 ===== */
         .content { font-size: 17px; line-height: 2; color: #d4cbe5; margin: 30px 0; word-break: keep-all; }
-        .content h2 { 
-            font-size: 24px; 
-            color: #d4af37; 
-            margin: 40px 0 15px; 
-            padding-bottom: 10px; 
-            border-bottom: 2px solid #2d2440; 
-            scroll-margin-top: 20px; 
-        }
+        .content h2 { font-size: 24px; color: #d4af37; margin: 40px 0 15px; padding-bottom: 10px; border-bottom: 2px solid #2d2440; scroll-margin-top: 20px; }
         .content h3 { font-size: 20px; color: #ff6b35; margin: 25px 0 10px; }
         .content ul, .content ol { margin: 15px 0 15px 25px; }
         .content li { margin: 8px 0; }
-        .highlight-box { 
-            background: rgba(212, 175, 55, 0.06); 
-            border: 1px solid rgba(212, 175, 55, 0.2); 
-            border-radius: 16px; 
-            padding: 25px 30px; 
-            margin: 30px 0; 
-        }
-        .highlight-box h3 { color: #d4af37 !important; }
-
-        /* ===== 테이블 ===== */
-        table { 
-            width:100%; 
-            border-collapse:collapse; 
-            font-size:15px; 
-            background:#14101F; 
-            border-radius:12px; 
-            overflow:hidden; 
-        }
+        .highlight-box { background: rgba(212, 175, 55, 0.06); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 16px; padding: 25px 30px; margin: 30px 0; }
+        table { width:100%; border-collapse:collapse; font-size:15px; background:#14101F; border-radius:12px; overflow:hidden; }
         th { background:#2d2440; color:#d4af37; padding:14px 16px; text-align:left; border-bottom:2px solid #3d3050; }
         td { padding:12px 16px; border-bottom:1px solid #2d2440; }
-
-        /* ===== 전화번호 박스 ===== */
-        .phone-box { 
-            background: rgba(212, 175, 55, 0.10); 
-            border: 2px solid rgba(212, 175, 55, 0.3); 
-            border-radius: 60px; 
-            padding: 18px 35px; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 18px; 
-            margin: 15px 0 25px; 
-        }
+        .phone-box { background: rgba(212, 175, 55, 0.10); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 60px; padding: 18px 35px; display: inline-flex; align-items: center; gap: 18px; margin: 15px 0 25px; }
         .phone-box span { font-size: 34px; font-weight: 900; color: #d4af37; letter-spacing: 2px; }
-
-        /* ===== CTA 버튼 ===== */
-        .btn { 
-            display: inline-block; 
-            background: linear-gradient(135deg, #d4af37, #ff6b35); 
-            padding: 18px 55px; 
-            border-radius: 60px; 
-            color: #fff; 
-            font-weight: 900; 
-            text-decoration: none; 
-            font-size: 20px; 
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3); 
-            transition: 0.2s; 
-            border: none; 
-            cursor: pointer; 
-        }
+        .btn { display: inline-block; background: linear-gradient(135deg, #d4af37, #ff6b35); padding: 18px 55px; border-radius: 60px; color: #fff; font-weight: 900; text-decoration: none; font-size: 20px; box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3); transition: 0.2s; border: none; cursor: pointer; }
         .btn:hover { transform: scale(1.04); box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5); }
-
-        /* ===== 태그 ===== */
         .tags { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 25px 0 15px; }
         .tag { background: #1e182b; padding: 8px 20px; border-radius: 40px; font-size: 14px; border: 1px solid #2d2440; color: #b7afc7; }
-
-        /* ===== 푸터 ===== */
-        .footer { 
-            margin-top: 45px; 
-            padding-top: 25px; 
-            border-top: 1px solid #1e182b; 
-            font-size: 13px; 
-            color: #5a4f6a; 
-            text-align: center; 
-        }
+        .footer { margin-top: 45px; padding-top: 25px; border-top: 1px solid #1e182b; font-size: 13px; color: #5a4f6a; text-align: center; }
         .footer a { color: #7a6f8a; text-decoration: none; }
-
-        /* ===== 하단 고정 전화 버튼 (2026년형) ===== */
-        .call-button-wrapper {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 99999;
-            padding: 14px 20px 18px;
-            background: linear-gradient(to top, rgba(5,5,10,0.97) 0%, rgba(5,5,10,0.85) 100%);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.6);
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .huge-call-btn {
-            display: block;
-            background: linear-gradient(135deg, #d4af37, #ff6b35);
-            color: #fff !important;
-            text-decoration: none !important;
-            padding: 18px 20px;
-            border-radius: 16px;
-            font-size: 1.4rem;
-            font-weight: 800;
-            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.35);
-            transition: all 0.2s ease;
-            max-width: 500px;
-            margin: 0 auto;
-            letter-spacing: 0.5px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        }
-        .huge-call-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 34px rgba(212, 175, 55, 0.5);
-        }
-        .huge-call-btn:active {
-            transform: scale(0.97);
-        }
-        .huge-call-btn .sub-text {
-            font-size: 1.1rem !important;
-            font-weight: 600 !important;
-            color: rgba(255,255,255,0.9) !important;
-            display: block !important;
-            margin-top: 6px !important;
-        }
-
-        /* ===== 반응형 ===== */
-        @media (max-width: 640px) {
-            .container { padding: 30px 20px; }
-            h1 { font-size: 34px; }
-            .sub { font-size: 17px; }
-            .content { font-size: 16px; }
-            .phone-box { padding: 14px 20px; }
-            .phone-box span { font-size: 26px; }
-            .btn { padding: 16px 30px; font-size: 17px; width: 100%; text-align: center; }
-            .toc a { display: inline-block; margin-bottom: 5px; }
-            .call-button-wrapper { padding: 12px 16px 16px; }
-            .huge-call-btn { font-size: 1.2rem; padding: 16px 16px; border-radius: 14px; }
-            .huge-call-btn .sub-text { font-size: 1.0rem !important; }
-        }
-        @media (max-width: 400px) {
-            body { padding: 12px 12px 110px 12px; }
-            .container { padding: 22px 16px; }
-            h1 { font-size: 28px; }
-        }
+        .call-button-wrapper { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 99999; padding: 14px 20px 18px; background: linear-gradient(to top, rgba(5,5,10,0.97) 0%, rgba(5,5,10,0.85) 100%); backdrop-filter: blur(8px); box-shadow: 0 -4px 30px rgba(0,0,0,0.6); border-top: 1px solid rgba(212, 175, 55, 0.15); box-sizing: border-box; text-align: center; }
+        .huge-call-btn { display: block; background: linear-gradient(135deg, #d4af37, #ff6b35); color: #fff !important; text-decoration: none !important; padding: 18px 20px; border-radius: 16px; font-size: 1.4rem; font-weight: 800; box-shadow: 0 6px 24px rgba(212, 175, 55, 0.35); transition: all 0.2s ease; max-width: 500px; margin: 0 auto; letter-spacing: 0.5px; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+        .huge-call-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 34px rgba(212, 175, 55, 0.5); }
+        .huge-call-btn:active { transform: scale(0.97); }
+        .huge-call-btn .sub-text { font-size: 1.1rem !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; display: block !important; margin-top: 6px !important; }
+        @media (max-width: 640px) { .container { padding: 30px 20px; } h1 { font-size: 34px; } .sub { font-size: 17px; } .content { font-size: 16px; } .phone-box { padding: 14px 20px; } .phone-box span { font-size: 26px; } .btn { padding: 16px 30px; font-size: 17px; width: 100%; text-align: center; } .toc a { display: inline-block; margin-bottom: 5px; } .call-button-wrapper { padding: 12px 16px 16px; } .huge-call-btn { font-size: 1.2rem; padding: 16px 16px; } .huge-call-btn .sub-text { font-size: 1.0rem !important; } }
+        @media (max-width: 400px) { body { padding: 12px 12px 110px 12px; } .container { padding: 22px 16px; } h1 { font-size: 28px; } }
     </style>
 </head>
 <body>
@@ -337,9 +160,6 @@
         <h1>논현 가라오케</h1>
         <div class="sub">📍 논현역 1번출구 · 24시 프리미엄 사운드</div>
 
-        <!-- ========================================== -->
-        <!-- 📌 목차 (내부 링크 - SEO 점수 상승)        -->
-        <!-- ========================================== -->
         <div class="toc">
             <p>📑 페이지 바로가기 (목차)</p>
             <a href="#intro">🎤 논현 가라오케</a>
@@ -355,38 +175,13 @@
             <a href="#tip">📌 방문 팁</a>
         </div>
 
-        <!-- ========================================== -->
-        <!-- 🔥 본문 콘텐츠 (10,000자 이상)              -->
-        <!-- ========================================== -->
         <div class="content">
-
-            <!-- ======================================== -->
-            <!-- 1. 인트로 (ID: intro)                    -->
-            <!-- ======================================== -->
             <h2 id="intro">🎤 논현 가라오케, 강남 1등 프리미엄 노래방</h2>
-            <p>
-                <strong>논현 가라오케</strong>는 서울 강남구 논현동에 위치한 프리미엄 엔터테인먼트 공간입니다. 
-                단순한 노래방을 넘어, <strong>JBL Professional 7.1채널 서라운드 시스템</strong>과 
-                감각적인 인테리어가 결합된 <strong>문화 복합 공간</strong>으로 자리매김하고 있습니다. 
-                논현역 1번출구에서 도보 1분 거리에 위치해 접근성이 뛰어나며, 
-                강남권 비즈니스맨과 젊은 층 사이에서 <strong>2024년 한국 소비자 평가 1위</strong>를 차지한 바 있습니다.
-            </p>
-            <p>
-                논현 가라오케는 <strong>월 평균 1,200명 이상</strong>의 고객이 방문하는 논현동의 랜드마크로, 
-                연간 200회 이상의 단체 이벤트와 생일 파티를 성공적으로 진행하며 
-                <strong>재방문율 96%</strong>라는 놀라운 기록을 보유하고 있습니다.
-            </p>
+            <p><strong>논현 가라오케</strong>는 서울 강남구 논현동에 위치한 프리미엄 엔터테인먼트 공간입니다. 단순한 노래방을 넘어, <strong>JBL Professional 7.1채널 서라운드 시스템</strong>과 감각적인 인테리어가 결합된 <strong>문화 복합 공간</strong>으로 자리매김하고 있습니다. 논현역 1번출구에서 도보 1분 거리에 위치해 접근성이 뛰어나며, 강남권 비즈니스맨과 젊은 층 사이에서 <strong>2024년 한국 소비자 평가 1위</strong>를 차지한 바 있습니다.</p>
+            <p>논현 가라오케는 <strong>월 평균 1,200명 이상</strong>의 고객이 방문하는 논현동의 랜드마크로, 연간 200회 이상의 단체 이벤트와 생일 파티를 성공적으로 진행하며 <strong>재방문율 96%</strong>라는 놀라운 기록을 보유하고 있습니다.</p>
 
-            <!-- ======================================== -->
-            <!-- 2. 가격 섹션 (ID: price)                 -->
-            <!-- ======================================== -->
             <h2 id="price">💰 2026년 논현 가라오케 가격 & 할인 정책</h2>
-            <p>
-                논현 가라오케는 <strong>투명한 가격 정책</strong>을 자랑합니다. 
-                아래는 <strong>2026년 8월 기준</strong> 실제 적용 중인 상세 요금표입니다. 
-                모든 가격에는 <strong>부가가치세(VAT)가 포함</strong>되어 있으며, 
-                시간당 요금은 기본 2시간 예약을 기준으로 산정됩니다.
-            </p>
+            <p>논현 가라오케는 <strong>투명한 가격 정책</strong>을 자랑합니다. 아래는 <strong>2026년 8월 기준</strong> 실제 적용 중인 상세 요금표입니다. 모든 가격에는 <strong>부가가치세(VAT)가 포함</strong>되어 있으며, 시간당 요금은 기본 2시간 예약을 기준으로 산정됩니다.</p>
             <div style="overflow-x:auto; margin:20px 0;">
                 <table>
                     <thead><tr><th>룸 타입</th><th>평일(월~목)</th><th>주말(금~일)</th><th>심야(00:00~06:00)</th></tr></thead>
@@ -409,15 +204,8 @@
                 </ul>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 3. 룸 섹션 (ID: room)                    -->
-            <!-- ======================================== -->
             <h2 id="room">🏠 5가지 프라이빗 룸 상세 스펙 & 인테리어</h2>
-            <p>
-                논현 가라오케는 고객님의 다양한 니즈에 맞춰 <strong>5가지 타입의 프라이빗 룸</strong>을 준비했습니다. 
-                모든 룸은 방음 처리가 완벽하게 되어 있으며, 
-                룸별로 차별화된 인테리어 콘셉트(모던, 럭셔리, 우드, 파티, 클럽 스타일)를 적용했습니다.
-            </p>
+            <p>논현 가라오케는 고객님의 다양한 니즈에 맞춰 <strong>5가지 타입의 프라이빗 룸</strong>을 준비했습니다. 모든 룸은 방음 처리가 완벽하게 되어 있으며, 룸별로 차별화된 인테리어 콘셉트(모던, 럭셔리, 우드, 파티, 클럽 스타일)를 적용했습니다.</p>
             <div style="overflow-x:auto; margin:20px 0;">
                 <table>
                     <thead><tr><th>룸 타입</th><th>평수</th><th>수용 인원</th><th>주요 스펙 & 특징</th></tr></thead>
@@ -431,31 +219,14 @@
                 </table>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 4. 음향 섹션 (ID: sound)                 -->
-            <!-- ======================================== -->
             <h2 id="sound">🎧 프리미엄 음향 시스템의 비밀 (JBL Pro)</h2>
-            <p>
-                논현 가라오케의 자랑은 단연 <strong>JBL Professional 7.1채널 서라운드 시스템</strong>입니다. 
-                일반 노래방의 저가형 스피커와 달리, 논현 가라오케는 <strong>JBL PRX800</strong> 시리즈의 메인 스피커와 
-                <strong>JBL Control 25AV</strong> 모니터 스피커를 채택하여, 
-                저음의 깊이와 고음의 선명도가 타 업소와 확연히 차별화됩니다.
-            </p>
-            <p>
-                특히 <strong>논현 가라오케</strong>의 모든 객실은 전문 사운드 엔지니어의 설계로 
-                객실 내 잔향 시간(Reverberation Time)을 최적화하여, 
-                노래를 부를 때 목소리가 답답하지 않고 시원하게 퍼져나가도록 튜닝되었습니다. 
-                또한 최신 <strong>디지털 반주기(TJ Media K-2026)</strong>를 도입하여 
-                매달 최신 가요, 아이돌 댄스곡, 트로트, 발라드, 팝송, OST까지 실시간 업데이트됩니다.
-            </p>
+            <p>논현 가라오케의 자랑은 단연 <strong>JBL Professional 7.1채널 서라운드 시스템</strong>입니다. 일반 노래방의 저가형 스피커와 달리, 논현 가라오케는 <strong>JBL PRX800</strong> 시리즈의 메인 스피커와 <strong>JBL Control 25AV</strong> 모니터 스피커를 채택하여, 저음의 깊이와 고음의 선명도가 타 업소와 확연히 차별화됩니다.</p>
+            <p>특히 <strong>논현 가라오케</strong>의 모든 객실은 전문 사운드 엔지니어의 설계로 객실 내 잔향 시간(Reverberation Time)을 최적화하여, 노래를 부를 때 목소리가 답답하지 않고 시원하게 퍼져나가도록 튜닝되었습니다. 또한 최신 <strong>디지털 반주기(TJ Media K-2026)</strong>를 도입하여 매달 최신 가요, 아이돌 댄스곡, 트로트, 발라드, 팝송, OST까지 실시간 업데이트됩니다.</p>
             <div class="highlight-box">
                 <h3 style="color:#d4af37;">🔊 소리가 남다른 이유 (전문가 칼럼)</h3>
                 <p>JBL Pro 스피커는 1000W 출력을 자랑하며, 일반 노래방 스피커(보통 200~300W) 대비 3배 이상의 출력을 제공합니다. 이는 다이내믹 레인지가 넓어져, 노래방에서 흔히 겪는 '소리가 찢어지는' 현상이 전혀 없음을 의미합니다.</p>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 5. 위치 & 주차 (ID: location)            -->
-            <!-- ======================================== -->
             <h2 id="location">📍 논현 가라오케 오시는 길 & 주차 완전 정복</h2>
             <p><strong>주소</strong>: 서울특별시 강남구 논현동 123-45, 논현빌딩 3층~5층</p>
             <div style="background:#14101F; border-radius:16px; padding:20px 25px; margin:20px 0; border:1px solid #2d2440;">
@@ -471,9 +242,6 @@
                 </ul>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 6. 후기 (ID: review)                     -->
-            <!-- ======================================== -->
             <h2 id="review">⭐ 네이버 평점 4.9점 생생한 실제 후기</h2>
             <p><strong>누적 127건</strong>의 리뷰 중 <strong>96%</strong>가 재방문 의사를 밝힌 검증된 핫플레이스입니다.</p>
             <div class="highlight-box">
@@ -484,9 +252,6 @@
                 <p><strong>⭐ ⭐ ⭐ ⭐ ⭐ 정우성 (VIP 스위트)</strong> (2026.07.20)<br>"24시라서 새벽 3시까지 놀다 갔어요. 심야 할인도 받고, 전담 매니저님 덕분에 정말 럭셔리하게 즐겼습니다. 인테리어가 호텔급이에요."</p>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 7. FAQ (ID: faq)                         -->
-            <!-- ======================================== -->
             <h2 id="faq">❓ 논현 가라오케 자주 묻는 질문 (FAQ)</h2>
             <p>실제 고객님들이 가장 많이 묻는 10가지 질문을 준비했습니다.</p>
             <ul>
@@ -502,9 +267,6 @@
                 <li><strong>Q. 주차는 어떻게 하나요?</strong><br>A. 발렛파킹 3시간 무료 서비스를 제공하고 있습니다. 건물 앞 직원에게 차량을 맡겨주세요.</li>
             </ul>
 
-            <!-- ======================================== -->
-            <!-- 8. 경쟁사 비교 (ID: compare)             -->
-            <!-- ======================================== -->
             <h2 id="compare">🏆 논현 가라오케 vs. 논현동 타 업소 객관적 비교</h2>
             <p>논현 가라오케가 논현동에서 1등인 이유를 데이터로 증명합니다.</p>
             <div style="overflow-x:auto; margin:20px 0;">
@@ -521,14 +283,8 @@
                 </table>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 9. 논현동 밤문화 & 맛집 (ID: night)      -->
-            <!-- ======================================== -->
             <h2 id="night">🌃 논현동 밤문화 & 2차, 3차 코스 추천</h2>
-            <p>
-                논현 가라오케는 논현동의 핵심 상권에 위치해 있어 방문 전후로 즐길 수 있는 <strong>맛집과 핫플레이스</strong>가 밀집되어 있습니다. 
-                노래방을 가기 전, 혹은 노래방에서 신나게 놀고 난 후의 코스를 소개합니다.
-            </p>
+            <p>논현 가라오케는 논현동의 핵심 상권에 위치해 있어 방문 전후로 즐길 수 있는 <strong>맛집과 핫플레이스</strong>가 밀집되어 있습니다. 노래방을 가기 전, 혹은 노래방에서 신나게 놀고 난 후의 코스를 소개합니다.</p>
             <ul>
                 <li><strong>🥩 고기 맛집 (2차)</strong>: '논현 소금구이' (도보 2분) - 직화 숯불 갈비, '한우마을' (도보 5분) - 한우 등심 전문</li>
                 <li><strong>🍣 회/일식 (1차)</strong>: '스시 논현' (도보 1분, 건물 1층) - 점심 특선 초밥, '이자카야 하루' (도보 3분) - 모듬 사시미</li>
@@ -537,14 +293,8 @@
             </ul>
             <p>고기로 배를 채운 후, 논현 가라오케에서 열창을 뽐내고, 와인 바에서 여유롭게 대화를 나누는 <strong>완벽한 논현동 나이트 루트</strong>를 경험해보세요.</p>
 
-            <!-- ======================================== -->
-            <!-- 10. 이벤트 & 단체 모임 (ID: event)       -->
-            <!-- ======================================== -->
             <h2 id="event">🎂 논현 가라오케 특별 이벤트 플래닝 가이드</h2>
-            <p>
-                논현 가라오케는 단순한 노래방을 넘어 <strong>생일파티, 프러포즈, 회사 워크샵, MT, 졸업파티</strong> 등 
-                다양한 이벤트를 성공적으로 개최한 경험을 보유하고 있습니다.
-            </p>
+            <p>논현 가라오케는 단순한 노래방을 넘어 <strong>생일파티, 프러포즈, 회사 워크샵, MT, 졸업파티</strong> 등 다양한 이벤트를 성공적으로 개최한 경험을 보유하고 있습니다.</p>
             <div class="highlight-box">
                 <h3 style="color:#d4af37; margin-top:0;">🎉 이벤트 별 맞춤 서비스</h3>
                 <ul>
@@ -555,13 +305,8 @@
                 </ul>
             </div>
 
-            <!-- ======================================== -->
-            <!-- 11. 방문 전 꿀팁 (ID: tip)               -->
-            <!-- ======================================== -->
             <h2 id="tip">📌 논현 가라오케 방문 전 알아두면 좋은 5가지 꿀팁</h2>
-            <p>
-                처음 방문하시는 분들을 위해 논현 가라오케를 200% 즐기는 <strong>꿀팁</strong>을 공개합니다.
-            </p>
+            <p>처음 방문하시는 분들을 위해 논현 가라오케를 200% 즐기는 <strong>꿀팁</strong>을 공개합니다.</p>
             <ul>
                 <li><strong>Tip 1 (예약)</strong>: 금요일과 토요일 저녁(6시~11시)은 예약이 빨리 마감됩니다. 최소 2~3일 전에 전화 예약하세요.</li>
                 <li><strong>Tip 2 (주류)</strong>: 위스키 풀병(700ml)을 주문하면 탄산수와 얼음이 무제한 리필됩니다. 칵테일보다 가성비가 훨씬 좋아요.</li>
@@ -571,22 +316,13 @@
             </ul>
             <p>이 팁들을 알고 가시면 논현 가라오케에서 진짜 <strong>VIP</strong> 같은 경험을 하실 수 있습니다.</p>
         </div>
-        <!-- ========================================== -->
-        <!-- 🔥 본문 콘텐츠 끝                           -->
-        <!-- ========================================== -->
 
-        <!-- ========================================== -->
-        <!-- 📞 CTA (전환 유도)                         -->
-        <!-- ========================================== -->
         <div style="text-align:center;">
             <div class="phone-box"><span>📞 070-7954-6982</span></div><br>
             <a href="tel:07079546982" class="btn">☎️ 지금 바로 전화 예약하기</a>
             <p style="color:#7a6f8a; font-size:14px; margin-top:12px;">* 주말/저녁 시간대는 사전 예약이 필수입니다. 지금 전화하세요!</p>
         </div>
 
-        <!-- ========================================== -->
-        <!-- 🏷️ 태그 (키워드 강화)                      -->
-        <!-- ========================================== -->
         <div class="tags">
             <span class="tag">#논현가라오케</span>
             <span class="tag">#논현동노래방</span>
@@ -597,9 +333,6 @@
             <span class="tag">#강남가라오케</span>
         </div>
 
-        <!-- ========================================== -->
-        <!-- 📌 푸터 (키워드 도배)                       -->
-        <!-- ========================================== -->
         <div class="footer">
             <p style="margin-bottom:5px;">
                 <strong>논현가라오케</strong> | <strong>논현 가라오케</strong> | 서울 강남구 논현동 123-45 | 070-7954-6982
@@ -612,7 +345,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- 🔥🔥🔥 바디 최하단 키워드 박아넣기 (분당사이트 스타일) -->
+    <!-- 🔥🔥🔥 바디 최하단 키워드 박아넣기 🔥🔥🔥 -->
     <!-- ========================================== -->
     논현가라오케
     논현 가라오케
@@ -623,7 +356,7 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- 📞 하단 고정 전화 버튼 (2026년형)           -->
+    <!-- 📞 하단 고정 전화 버튼                     -->
     <!-- ========================================== -->
     <div class="call-button-wrapper">
         <a href="tel:070-7954-6982" class="huge-call-btn">
