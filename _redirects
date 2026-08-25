@@ -1,5 +1,2 @@
-# index.html → / 로 리다이렉트 (중복 콘텐츠 방지)
+# index.html → / 로 리다이렉트 (SEO 중복 콘텐츠 방지)
 /index.html / 301
-
-# www → non-www (선택)
-# https://www.nonhyeon-karaoke.pages.dev/* https://nonhyeon-karaoke.pages.dev/:splat 301
